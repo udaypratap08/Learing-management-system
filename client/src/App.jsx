@@ -22,7 +22,7 @@ const App = () => {
 
   return (
     <div className="text-default min-h-screen bg-white">
-      {/* jab ural ka path educator ke alawa kuch ho tab navbat dikhe*/}
+      {/* jab url ka path educator ke alawa kuch ho tab navbat dikhe*/}
       {!isEducatorRoute && <Navbar />} 
       <Routes>
         <Route path="/" element={<Home />} />

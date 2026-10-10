@@ -15,7 +15,7 @@ const Navbar = () => {
       <img src={assets.logo} alt='Logo' className='w-28 lg:w-32 cursor-pointer' />
       <div className='hidden md:flex items-center gap-5 text-gray-500'>
         <div className='flex items-center gap-5'>
-         { user &&
+         { user &&   
          <>
           <button>Become Educator</button>
           | <Link to='/my-enrollments'>My Enrollments</Link>
@@ -28,11 +28,18 @@ const Navbar = () => {
       </div>
       {/*for phone screen*/}
       <div className='md:hidden flex items-center gap-2 sm:gap-5 text-gray-500'>
-        <div>
+        <div className='flex items-center gap-1 sm:gap-2 max-sm:text-xs'>
+          { user && 
+          <>
           <button>Become Educator</button>
           | <Link to={'/my-enrollments'}>My Enrollments</Link>
+          </>
+          }
         </div>
-        <button><img src={assets.user_icon} alt=""/></button>
+        {
+          user ? <UserButton />: <button onClick={()=>openSignIn()}><img src={assets.user_icon} alt=""/></button>
+        }
+       
 
       </div>
     </div>
