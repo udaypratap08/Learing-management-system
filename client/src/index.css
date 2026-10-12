@@ -22,6 +22,10 @@
   --text-default--line-height: 21px;
 } 
 
+  @utility grid-cols-auto {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  
+  }
  /* @utility text-course-details-heading-small {
   font-size: 26px;
   line-height: 36px;
