@@ -315,7 +315,7 @@ export const dummyCourses = [
           {
             lectureId: " lecture1",
             lectureTitle: "Lists and Tuples",
-            lectureDuration: 720,
+            lectureDuration: 15,
             lectureUrl: "https://youtu.be/HdLIMoQkXFA",
             isPreviewFree: true,
             lectureOrder: 1,
@@ -323,7 +323,7 @@ export const dummyCourses = [
           {
             lectureId: "lecture2",
             lectureTitle: "Dictionaries and Sets",
-            lectureDuration: 850,
+            lectureDuration: 11,
             lectureUrl: "https://youtu.be/HdLIMoQkXFA",
             isPreviewFree: false,
             lectureOrder: 2,
@@ -338,7 +338,7 @@ export const dummyCourses = [
           {
             lectureId: "lecture3",
             lectureTitle: "Classes and Objects",
-            lectureDuration: 900,
+            lectureDuration: 15,
             lectureUrl: "https://youtu.be/HdLIMoQkXFA",
             isPreviewFree: true,
             lectureOrder: 1,
@@ -346,7 +346,7 @@ export const dummyCourses = [
           {
             lectureId: "lecture4",
             lectureTitle: "Inheritance and Polymorphism",
-            lectureDuration: 950,
+            lectureDuration: 18,
             lectureUrl: "https://youtu.be/HdLIMoQkXFA",
             isPreviewFree: false,
             lectureOrder: 2,
@@ -455,7 +455,7 @@ export const dummyCourses = [
           {
             lectureId: "lecture1",
             lectureTitle: "Introduction to HTML",
-            lectureDuration: 600,
+            lectureDuration: 18,
             lectureUrl: "https://youtu.be/-HeadgoqJ7A",
             isPreviewFree: true,
             lectureOrder: 1,
@@ -463,7 +463,7 @@ export const dummyCourses = [
           {
             lectureId: "lecture2",
             lectureTitle: "Styling with CSS",
-            lectureDuration: 720,
+            lectureDuration: 10,
             lectureUrl: "https://youtu.be/-HeadgoqJ7A",
             isPreviewFree: false,
             lectureOrder: 2,
@@ -478,7 +478,7 @@ export const dummyCourses = [
           {
             lectureId: "lecture3",
             lectureTitle: "JavaScript Basics",
-            lectureDuration: 800,
+            lectureDuration: 15,
             lectureUrl: "https://youtu.be/-HeadgoqJ7A",
             isPreviewFree: true,
             lectureOrder: 1,
@@ -486,7 +486,7 @@ export const dummyCourses = [
           {
             lectureId: "lecture4",
             lectureTitle: "DOM Manipulation",
-            lectureDuration: 850,
+            lectureDuration: 16,
             lectureUrl: "https://youtu.be/-HeadgoqJ7A",
             isPreviewFree: false,
             lectureOrder: 2,
@@ -522,7 +522,7 @@ export const dummyCourses = [
           {
             lectureId: "lecture1",
             lectureTitle: "What is Cloud Computing?",
-            lectureDuration: 600,
+            lectureDuration: 16,
             lectureUrl: "https://youtu.be/-HeadgoqJ7A",
             isPreviewFree: true,
             lectureOrder: 1,
@@ -530,7 +530,7 @@ export const dummyCourses = [
           {
             lectureId: "lecture2",
             lectureTitle: "Cloud Service Models",
-            lectureDuration: 720,
+            lectureDuration: 12,
             lectureUrl: "https://youtu.be/-HeadgoqJ7A",
             isPreviewFree: false,
             lectureOrder: 2,
@@ -545,7 +545,7 @@ export const dummyCourses = [
           {
             lectureId: "lecture3",
             lectureTitle: "AWS Basics",
-            lectureDuration: 800,
+            lectureDuration: 18,
             lectureUrl: "https://youtu.be/-HeadgoqJ7A",
             isPreviewFree: true,
             lectureOrder: 1,
@@ -553,7 +553,7 @@ export const dummyCourses = [
           {
             lectureId: "lecture4",
             lectureTitle: "Introduction to Google Cloud",
-            lectureDuration: 850,
+            lectureDuration: 16,
             lectureUrl: "https://youtu.be/-HeadgoqJ7A",
             isPreviewFree: false,
             lectureOrder: 2,
@@ -660,7 +660,7 @@ export const dummyCourses = [
           {
             lectureId: "lecture1",
             lectureTitle: "What is Data Science?",
-            lectureDuration: 600,
+            lectureDuration: 16,
             lectureUrl: "https://youtu.be/-HeadgoqJ7A",
             isPreviewFree: true,
             lectureOrder: 1,
@@ -668,7 +668,7 @@ export const dummyCourses = [
           {
             lectureId: "lecture2",
             lectureTitle: "Data Collection and Cleaning",
-            lectureDuration: 720,
+            lectureDuration: 12,
             lectureUrl: "https://youtu.be/-HeadgoqJ7A",
             isPreviewFree: false,
             lectureOrder: 2,
@@ -683,7 +683,7 @@ export const dummyCourses = [
           {
             lectureId: "lecture3",
             lectureTitle: "Supervised vs Unsupervised Learning",
-            lectureDuration: 800,
+            lectureDuration: 17,
             lectureUrl: "https://youtu.be/-HeadgoqJ7A",
             isPreviewFree: true,
             lectureOrder: 1,
@@ -691,7 +691,7 @@ export const dummyCourses = [
           {
             lectureId: "lecture4",
             lectureTitle: "Building Your First Model",
-            lectureDuration: 850,
+            lectureDuration: 16,
             lectureUrl: "https://youtu.be/-HeadgoqJ7A",
             isPreviewFree: false,
             lectureOrder: 2,
@@ -724,7 +724,7 @@ export const dummyCourses = [
           {
             lectureId: "lecture1",
             lectureTitle: "Introduction to Cybersecurity",
-            lectureDuration: 700,
+            lectureDuration: 17,
             lectureUrl: "https://youtu.be/-HeadgoqJ7A",
             isPreviewFree: true,
             lectureOrder: 1,
@@ -732,7 +732,7 @@ export const dummyCourses = [
           {
             lectureId: "lecture2",
             lectureTitle: "Understanding Cyber Threats",
-            lectureDuration: 750,
+            lectureDuration: 15,
             lectureUrl: "https://youtu.be/-HeadgoqJ7A",
             isPreviewFree: false,
             lectureOrder: 2,
@@ -747,7 +747,7 @@ export const dummyCourses = [
           {
             lectureId: "lecture3",
             lectureTitle: "Securing Networks",
-            lectureDuration: 800,
+            lectureDuration: 18,
             lectureUrl: "https://youtu.be/-HeadgoqJ7A",
             isPreviewFree: true,
             lectureOrder: 1,
@@ -755,7 +755,7 @@ export const dummyCourses = [
           {
             lectureId: "lecture4",
             lectureTitle: "Firewalls and VPNs",
-            lectureDuration: 850,
+            lectureDuration: 15,
             lectureUrl: "https://youtu.be/-HeadgoqJ7A",
             isPreviewFree: false,
             lectureOrder: 2,
