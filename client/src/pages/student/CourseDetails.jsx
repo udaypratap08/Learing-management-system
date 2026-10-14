@@ -8,7 +8,7 @@ const CourseDetails = () => {
   const { id } = useParams();
 
   const [courseData, setCourseData] = useState(null);
-  const { allCourses,calculateRating } = useContext(AppContext);
+  const { allCourses,calculateRating,calcilatingNoOfLectures,calculateCourseDuration,calculateChapterTime } = useContext(AppContext);
 
   const fetchCourseData = async () => {
     const findCourse = allCourses.find((course) => course._id === id);

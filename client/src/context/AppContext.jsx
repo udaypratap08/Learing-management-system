@@ -61,7 +61,7 @@ import humanizeDuration from 'humanize-duration'
         fetchAllCourses()
     },[])
     const value= {
-        currency, allCourses,navigate,calculateRating,isEducator,setisEducator,calculateChapterTime,calculateCourseDuration,calculateNoOfLactures
+        currency, allCourses,navigate,calculateRating,isEducator,setisEducator,calculateChapterTime,calculateCourseDuration, calculateNoOfLactures
     }
 
     return(
