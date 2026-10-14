@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
 @import "tailwindcss";
+
 *{
   font-family: outfit;
 }
@@ -26,6 +27,13 @@
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   
   }
+   
+  @utility h-section-height{
+    height: 500px;
+  }
+
+
+
  /* @utility text-course-details-heading-small {
   font-size: 26px;
   line-height: 36px;
