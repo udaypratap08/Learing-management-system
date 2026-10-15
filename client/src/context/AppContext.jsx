@@ -47,7 +47,7 @@ import humanizeDuration from 'humanize-duration'
     }
      
     // function to calculate no. of lectures in the course
-    const calculateNoOfLactures= (course)=>{
+    const calculateNoOfLectures= (course)=>{
         let totalLectures=0
         course.courseContent.forEach(chapter=>{
             if(Array.isArray(chapter.chapterContent)){
@@ -61,7 +61,7 @@ import humanizeDuration from 'humanize-duration'
         fetchAllCourses()
     },[])
     const value= {
-        currency, allCourses,navigate,calculateRating,isEducator,setisEducator,calculateChapterTime,calculateCourseDuration, calculateNoOfLactures
+        currency, allCourses,navigate,calculateRating,isEducator,setisEducator,calculateChapterTime,calculateCourseDuration, calculateNoOfLectures
     }
 
     return(
