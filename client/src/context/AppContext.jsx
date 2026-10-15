@@ -13,6 +13,7 @@ import humanizeDuration from 'humanize-duration'
 
     const [allCourses,setAllCourses] = useState([])
     const [isEducator,setisEducator] = useState(true)
+    const [enrolledCourses,setEnrolledCourses] = useState([])
     
     
     //Fetch all courses
@@ -56,12 +57,18 @@ import humanizeDuration from 'humanize-duration'
         });
         return totalLectures;
     }
+    
+     // Fetch data user enrolled courses
+     const fetchUserEnrolledCourses= async ()=>{
+        setEnrolledCourses(dummyCourses)
+     }
 
     useEffect(()=>{
         fetchAllCourses()
+        fetchUserEnrolledCourses()
     },[])
     const value= {
-        currency, allCourses,navigate,calculateRating,isEducator,setisEducator,calculateChapterTime,calculateCourseDuration, calculateNoOfLectures
+        currency, allCourses,navigate,calculateRating,isEducator,setisEducator,calculateChapterTime,calculateCourseDuration, calculateNoOfLectures,enrolledCourses,fetchUserEnrolledCourses
     }
 
     return(
