@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { assets } from '../../assets/assets'
+import { AppContext } from '../../context/AppContext'
 
 const Footer = () => {
+
+  const {navigate}= useContext(AppContext)
+
   return (
     <footer className='bg-gray-900 md:px-36 text-left w-full mt-10'>
       <div className='flex flex-col md:flex-row items-start px-8 md:px-0 justify-center gap-10 md:gap-32 py-10 border-b border-white/30'>
         <div className='flex flex-col md:items-start items-center w-full'>
-          <img src={assets.logo_dark} alt="footer logo"/>
+          <img onClick={()=> navigate('/')} src={assets.logo_dark} alt="footer logo"/>
           <p className='mt-6 text-center md:text-left text-sm text-white/30'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex voluptatum quod eveniet error facere, consequatur eaque libero ad, quibusdam.</p>
         </div>
         <div className='flex flex-col md:items-start items-center w-full'>
