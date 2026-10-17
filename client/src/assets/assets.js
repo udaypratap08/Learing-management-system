@@ -136,8 +136,7 @@ export const dummyDashboardData = {
       student: {
         _id: "user_2qQlvXyr02B4Bq6hT0Gvaa5fT9V",
         name: "Aditya",
-        imageUrl:
-          "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ycVFsdmFMSkw3ckIxNHZMU2o4ZURWNEtmR2IifQ",
+        imageUrl:assets.profile_img_1,
       },
     },
     {
@@ -145,8 +144,7 @@ export const dummyDashboardData = {
       student: {
         _id: "user_2qQlvXyr02B4Bq6hT0Gvaa5fT9V",
         name: "Aman",
-        imageUrl:
-          "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ycVFsdmFMSkw3ckIxNHZMU2o4ZURWNEtmR2IifQ",
+        imageUrl:assets.profile_img_2,
       },
     },
     {
@@ -154,8 +152,7 @@ export const dummyDashboardData = {
       student: {
         _id: "user_2qQlvXyr02B4Bq6hT0Gvaa5fT9V",
         name: "Mohit",
-        imageUrl:
-          "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ycVFsdmFMSkw3ckIxNHZMU2o4ZURWNEtmR2IifQ",
+        imageUrl:assets.profile_img_3,
       },
     },
     {
@@ -163,8 +160,7 @@ export const dummyDashboardData = {
       student: {
         _id: "user_2qQlvXyr02B4Bq6hT0Gvaa5fT9V",
         name: "Ramesh",
-        imageUrl:
-          "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ycVFsdmFMSkw3ckIxNHZMU2o4ZURWNEtmR2IifQ",
+        imageUrl:assets.profile_img2,
       },
     },
     {
@@ -172,8 +168,7 @@ export const dummyDashboardData = {
       student: {
         _id: "user_2qQlvXyr02B4Bq6hT0Gvaa5fT9V",
         name: "Shivam",
-        imageUrl:
-          "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ycVFsdmFMSkw3ckIxNHZMU2o4ZURWNEtmR2IifQ",
+        imageUrl:assets.profile_img_3,
       },
     },
   ],
@@ -184,42 +179,38 @@ export const dummyStudentEnrolled = [
   {
     student: {
       _id: "user_2qQlvXyr02B4Bq6hT0Gvaa5fT9V",
-      name: "GreatStack",
-      imageUrl:
-        "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ycVFsdmFMSkw3ckIxNHZMU2o4ZURWNEtmR2IifQ",
+      name: "Aditya",
+      imageUrl:assets.profile_img_1,
     },
     courseTitle: "Introduction to JavaScript",
-    purchaseDate: "2024-12-20T08:39:55.509Z",
+    purchaseDate: "2026-12-10T08:39:55.509Z",
   },
   {
     student: {
       _id: "user_2qQlvXyr02B4Bq6hT0Gvaa5fT9V",
-      name: "GreatStack",
-      imageUrl:
-        "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ycVFsdmFMSkw3ckIxNHZMU2o4ZURWNEtmR2IifQ",
+      name: "Aman",
+      imageUrl:assets.profile_img_2,
     },
     courseTitle: "Introduction to JavaScript",
-    purchaseDate: "2024-12-20T08:59:49.964Z",
+    purchaseDate: "2026-11-10T08:59:49.964Z",
   },
   {
     student: {
       _id: "user_2qQlvXyr02B4Bq6hT0Gvaa5fT9V",
-      name: "GreatStack",
-      imageUrl:
-        "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ycVFsdmFMSkw3ckIxNHZMU2o4ZURWNEtmR2IifQ",
+      name: "Mohit",
+      imageUrl:assets.profile_img_3,
     },
     courseTitle: "Advanced Python Programming",
-    purchaseDate: "2024-12-20T11:03:42.931Z",
+    purchaseDate: "2026-12-10T11:03:42.931Z",
   },
   {
     student: {
       _id: "user_2qQlvXyr02B4Bq6hT0Gvaa5fT9V",
-      name: "GreatStack",
-      imageUrl:
-        "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ycVFsdmFMSkw3ckIxNHZMU2o4ZURWNEtmR2IifQ",
+      name: "Ramesh",
+      imageUrl:assets.profile_img,
     },
     courseTitle: "Web Development Bootcamp",
-    purchaseDate: "2024-12-20T11:04:48.798Z",
+    purchaseDate: "2026-09-10T11:04:48.798Z",
   },
 ];
 
