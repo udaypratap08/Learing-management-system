@@ -10,8 +10,7 @@ import Course from "../models/Course.js";
  export const clerkWebhooks= async(req, res)=>{
    try{
        const whook = new Webhook(process.env.CLERK_WEBHOOK_SECRET)
-
-
+      
     if (!webhookSecret) {
       return res.status(500).json({
         success: false,
