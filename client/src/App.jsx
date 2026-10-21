@@ -14,6 +14,7 @@ import MyCourses from "./pages/educator/MyCourses";
 import StudentsEnrolled from "./pages/educator/StudentsEnrolled";
 import Navbar from "./components/student/Navbar";
 import "quill/dist/quill.snow.css";
+ import { ToastContainer} from 'react-toastify';
 
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
 
   return (
     <div className="text-default min-h-screen bg-white">
+      <ToastContainer/>
       {/* jab url ka path educator ke alawa kuch ho tab navbar dikhe*/}
       {!isEducatorRoute && <Navbar />} 
       <Routes>
