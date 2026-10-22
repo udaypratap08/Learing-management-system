@@ -2,6 +2,7 @@ import { clerkClient,getAuth} from '@clerk/express'
 import Course from '../models/Course.js'
 import { v2 as cloudinary} from 'cloudinary'
 import { Purchase } from '../models/Purchase.js';
+import User from '../models/User.js'
          
 
 // update role to educator
@@ -48,6 +49,7 @@ export const addCourse= async (req,res)=>{
          const imageFile= req.file
          const educatorId= userId
           // check thumbnail 
+
          if(!imageFile){
             return res.json({ success: false, message: 'Thumbnail Not Attached'})
          } 
@@ -55,9 +57,11 @@ export const addCourse= async (req,res)=>{
          const parsedCourseData = await JSON.parse(courseData)
 
          parsedCourseData.educator = educatorId
+         parsedCourseData.isPublished = true;
          const newCourse = await Course.create(parsedCourseData)
          
           const imageUpload= await cloudinary.uploader.upload(imageFile.path)
+
           newCourse.courseThumbnail= imageUpload.secure_url
           await newCourse.save()
 
@@ -65,27 +69,45 @@ export const addCourse= async (req,res)=>{
 
     } catch (error) {
            res.json({ success: false, message: error.message })
+
     }
 }
 
  // Get Educator Courses
  export const getEducatorCourses= async(req,res)=>{
     try{
-         const educator= req.auth.userId
-         const courses= await Course.find({educator})
+        //  const educator= req.auth.userId
+        //  const courses= await Course.find
+        //  ({educator})
+        const { userId, isAuthenticated } = getAuth(req);
+ 
+        if (!isAuthenticated || !userId) {
+          return res.status(401).json({
+             success: false,
+           message: "User is not authenticated",
+           });
+         } 
+
+         const courses = await Course.find({ educator: userId });
          res.json({ success: true, courses})
+      
+
+        
 
     } catch (error){
           res.json({ success: false, message: error.message})
-    }
+        
+  }
+    
  }
 
  // Get Educator Dashboard Data (total earning, enrolled students, NO. of Courses)
 
  export const educatorDashboardData = async(req,res)=>{
     try{
-        const educator = req.auth.userId;
-        const courses= await Course.find({educator})
+        // const educator = req.auth.userId;
+        const { userId, isAuthenticated } = getAuth(req);
+        const courses= await Course.find({educator: userId})
         const totalCourses= courses.length
 
         const courseIds= courses.map(course => course._id)
@@ -126,8 +148,18 @@ export const addCourse= async (req,res)=>{
 
  export const getEnrolledStudentsData = async (req,res) =>{
     try{
-        const educator = req.auth.userId;
-        const courses = await Course.find({educator})
+        // const educator = req.auth.userId;
+        const { userId, isAuthenticated } = getAuth(req);
+
+         if (!isAuthenticated || !userId) {
+      return res.status(401).json({
+        success: false,
+        message: "User is not authenticated",
+      });
+    }
+
+
+        const courses = await Course.find({educator: userId})
         const courseIds = courses.map(course => course._id)
 
         const purchases = await Purchase.find({
