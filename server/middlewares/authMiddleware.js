@@ -1,19 +1,9 @@
 import { clerkClient, getAuth } from "@clerk/express";
 
-// Middleware (Projext Educator Routes)
-export const protectEducator= async (req, res, next)=>{
-    try{
-       
-
-          const auth = getAuth(req);
-
-           console.log("AUTH DEBUG:", {
-             authorizationHeaderPresent: Boolean(req.headers.authorization),
-             isAuthenticated: auth.isAuthenticated,
-            userIdPresent: Boolean(auth.userId),
-           });
-
-    const { isAuthenticated, userId } = auth;
+// Protect all educator-only API routes using Clerk's server-side public metadata.
+export const protectEducator = async (req, res, next) => {
+  try {
+    const { isAuthenticated, userId } = getAuth(req);
 
     if (!isAuthenticated || !userId) {
       return res.status(401).json({
@@ -23,17 +13,26 @@ export const protectEducator= async (req, res, next)=>{
     }
 
     const user = await clerkClient.users.getUser(userId);
+    const role = user.publicMetadata?.role;
 
-    if (user.publicMetadata?.role !== "educator") {
+    console.log("EDUCATOR ROLE CHECK:", { userId, role });
+
+    if (role !== "educator") {
       return res.status(403).json({
         success: false,
-        message: "Unauthorized Access",
+        message: "Educator access only",
       });
     }
 
-        next()
+    return next();
+  } catch (error) {
+    console.error("protectEducator error:", error);
+    return res.status(500).json({
+      success: false,
+      message: "Failed to verify educator permissions",
+    });
+  }
+};
 
-    } catch (error) {
-           res.json({success: false, message: error.message})
-    }
-}
+
+ 

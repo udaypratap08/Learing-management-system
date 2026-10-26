@@ -2,7 +2,7 @@ import Course from "../models/Course.js"
 import { CourseProgress } from "../models/CourseProgress.js"
 import { Purchase } from "../models/Purchase.js"
 import User from "../models/User.js"
-import { getAuth } from '@clerk/express'
+import { clerkClient, getAuth } from '@clerk/express';
 import Stripe from 'stripe'
 
 // GEt User Data
@@ -24,6 +24,78 @@ export const getUserData = async(req,res)=>{
         res.json({ success: false, message: error.message})
      }
 }
+  
+
+// syncUserToDatabase function 
+
+export const syncUserToDatabase = async (req, res) => {
+  try {
+    const { userId } = getAuth(req);
+
+    if (!userId) {
+      return res.status(401).json({
+        success: false,
+        message: 'Not authenticated'
+      });
+    }
+
+    // Clerk se verified user details lo
+    const clerkUser = await clerkClient.users.getUser(userId);
+
+    const email =
+      clerkUser.emailAddresses?.find(
+        item => item.id === clerkUser.primaryEmailAddressId
+      )?.emailAddress ||
+      clerkUser.emailAddresses?.[0]?.emailAddress;
+
+    if (!email) {
+      return res.status(400).json({
+        success: false,
+        message: 'Email not found in Clerk'
+      });
+    }
+
+    const userData = {
+      name:
+        [clerkUser.firstName, clerkUser.lastName]
+          .filter(Boolean)
+          .join(' ') || email,
+      email,
+      imageUrl: clerkUser.imageUrl || ''
+    };
+
+    // User nahi hai to create, hai to update
+    const user = await User.findOneAndUpdate(
+      { _id: userId },
+      { $set: userData },
+      {
+        upsert: true,
+        new: true,
+        runValidators: true,
+        setDefaultsOnInsert: true
+      }
+    );
+
+    return res.status(200).json({
+      success: true,
+      message: 'User saved in MongoDB',
+      user
+    });
+
+  } catch (error) {
+    console.error('syncUserToDatabase error:', error);
+
+    return res.status(500).json({
+      success: false,
+      message: 'Failed to save user'
+    });
+  }
+};
+
+
+
+
+
 
 // Users Enrolled Courses with Lecture Links
 export const userEnrolledCourses = async(req,res)=>{

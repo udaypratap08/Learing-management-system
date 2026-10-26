@@ -109,9 +109,20 @@ const CourseDetails = () => {
   }, []);
 
   useEffect(() => {
-    if (userData && courseData) {
-      setIsAlreadyEnrolled(userData.enrolledCourses.includes(courseData._id));
-    }
+     if (!userData || !courseData) {
+    setIsAlreadyEnrolled(false);
+    return;
+  }
+
+  const enrolledCourses = userData.enrolledCourses || [];
+
+  setIsAlreadyEnrolled(
+    enrolledCourses.some(course =>
+      typeof course === 'string'
+        ? course === courseData._id
+        : course?._id === courseData._id
+    )
+  );
   }, [userData, courseData]);
 
   const toggleSection = (index) => {

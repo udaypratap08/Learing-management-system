@@ -1,5 +1,6 @@
 import React from "react";
-import { Route, Routes, useMatch } from "react-router-dom";
+import { Route, Routes, Navigate, useMatch } from "react-router-dom";
+import { useUser } from "@clerk/react";
 
 import Home from "./pages/student/Home";
 import CourseList from "./pages/student/CourseList";
@@ -17,10 +18,23 @@ import "quill/dist/quill.snow.css";
  import { ToastContainer} from 'react-toastify';
 
 
+const EducatorRoute = ({ children }) => {
+  const { isLoaded, isSignedIn, user } = useUser();
+
+  if (!isLoaded) return <Loading />;
+  if (!isSignedIn) return <Navigate to="/" replace />;
+
+  // Check Clerk role directly as well as the synchronized app state.
+  if (user?.publicMetadata?.role !== "educator") {
+    return <Navigate to="/" replace />;
+  }
+
+  return children;
+};
+
 const App = () => {
 
  const isEducatorRoute= useMatch('/educator/*')
-
 
   return (
     <div className="text-default min-h-screen bg-white">
@@ -35,13 +49,19 @@ const App = () => {
         <Route path="/my-enrollments" element={<MyEnrollments />} />
         <Route path="/player/:courseId" element={<Player />} />
         <Route path="/loading/:path" element={<Loading />} />
-        <Route path="/educator" element={<Educator />}>
-          <Route path="/educator" element={<Dashboard />} />
+        <Route
+          path="/educator"
+          element={
+            <EducatorRoute>
+              <Educator />
+            </EducatorRoute>
+          }
+        >
+          <Route index element={<Dashboard />} />
           <Route path="add-course" element={<AddCourse />} />
-          <Route path="my-courses" element= {<MyCourses />} />
+          <Route path="my-courses" element={<MyCourses />} />
           <Route path="student-enrolled" element={<StudentsEnrolled />} />
         </Route>
-
 
       </Routes>
     </div>
@@ -49,3 +69,5 @@ const App = () => {
 };
 
 export default App;
+
+

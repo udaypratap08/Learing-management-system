@@ -3,7 +3,7 @@ import {assets} from '../../assets/assets'
 import { Link } from 'react-router-dom'
 import { useClerk, UserButton, useUser } from '@clerk/react'
 import { AppContext } from '../../context/AppContext'
-import axios from 'axios'
+import { toast } from 'react-toastify'
 
 const Navbar = () => {
 
@@ -14,25 +14,17 @@ const Navbar = () => {
   const {openSignIn} = useClerk();
   const {user}= useUser();
 
-  const becomeEducator = async()=>{
-    try{
-      if(isEducator){
-        navigate('/educator')
-        return;
-      }
-      const token = await getToken()
-      const {data} = await axios.get(backendUrl + '/api/educator/update-role', {headers: {Authorization: `Bearer ${token}`}})
-
-      if(data.success){
-        setisEducator(true)
-        toast.success(data.message)
-      }
-      else{
-        toast.error(data.message)
-      }
-    } catch(error){
-      toast.error(error.message)
+  const becomeEducator = () => {
+    if (isEducator) {
+      navigate('/educator');
+      return;
     }
+    else{
+      toast.info('Educator Access requires approval.')
+    }
+
+    // Students cannot grant themselves educator permissions.
+    toast.info('Educator access requires approval.');
   }
 
   return (
@@ -72,3 +64,6 @@ const Navbar = () => {
 }
 
 export default Navbar
+
+
+ 
